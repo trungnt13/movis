@@ -601,7 +601,7 @@ def _clip_image(image: np.ndarray) -> np.ndarray:
         return image
     top, bottom = np.min(non_empty_row_indices), np.max(non_empty_row_indices)
     left, right = np.min(non_empty_col_indices), np.max(non_empty_col_indices)
-    clipped_image = image[top: bottom + 1, left: right + 1]
+    clipped_image = image[max(0, top - 3): bottom + 3, left: right + 1]
     return clipped_image
 
 
